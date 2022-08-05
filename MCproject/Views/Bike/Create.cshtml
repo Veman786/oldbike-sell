@@ -1,0 +1,92 @@
+﻿@model MCproject.Models.viewmodel.Bikeviewmodel
+@using MCproject.IEnumerableExtensions
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2 class="text-info">Add Bike</h2>
+<form method="post" asp-action="Create">
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Makes"></label>
+        </div>
+        <div class="col-2">
+            <select asp-for="Bike.makeid" asp-items="Model.Makes.ToSelectListItem()" class="form-control " id="Makes"></select>
+            @*<select asp-for="Bike.makeid" asp-items="Model.CselectListItem(Model.Makes)" class="form-control"></select>*@
+        </div>
+    </div>
+
+    @*<div class="form-group row">*@
+    <div class="col-2">
+        <label asp-for="Models"></label>
+    </div>
+    <div class="col-2">
+        <select asp-for="Bike.modelid" asp-items="Model.Models.ToSelectListItem()" class="form-control" id="Models"></select>
+        @*<select asp-for="Bike.modelid" asp-items="Model.selectListItem(Model.Models)" class="form-control"></select>*@
+    </div>
+    @*<div class="form-group row">*@
+    <div class="col-2">
+        <label asp-for="Bike.year"></label>
+    </div>
+    <div class="col-2">
+        <input asp-for="Bike.year" class="form-control" />
+    </div>
+    @*<div class="form-group row">*@
+    <div class="col-2">
+        <label asp-for="Bike.mileage"></label>
+    </div>
+    <div class="col-2">
+        <input asp-for="Bike.mileage" class="form-control" />
+    </div>
+    @*<div class="form-group row">*@
+    <div class="col-2">
+        <label asp-for="Bike.price"></label>
+    </div>
+    <div class="col-2">
+        <input asp-for="Bike.price" class="form-control" />
+    </div>
+    @*<div class="form-group row">*@
+    <div class="col-2">
+        <label asp-for="Bike.features"></label>
+    </div>
+    <div class="col-2">
+        <input asp-for="Bike.features" class="form-control" />
+    </div>
+    @*<div class="form-group row">*@
+    <div class="col-2">
+        <label asp-for="Bike.sellername"></label>
+    </div>
+    <div class="col-2">
+        <input asp-for="Bike.sellername" class="form-control" />
+    </div>
+    @*<div class="form-group row">*@
+    <div class="col-2">
+        <label asp-for="Bike.selleremail"></label>
+    </div>
+    <div class="col-2">
+        <input asp-for="Bike.selleremail" class="form-control" />
+    </div>
+    @*<div class="form-group row">*@
+    <div class="col-2">
+        <label asp-for="Bike.sellerphone"></label>
+    </div>
+    <div class="col-2">
+        <input asp-for="Bike.sellerphone" class="form-control" />
+    </div>
+    <div class="col-2">
+                                        <label asp-for="Bike.currency"></label>
+                                    </div>
+        
+    <div class="col-2">
+        <select asp-for="Bike.currency" asp-items="Model.currencies.ToSelectListItem()" class="form-control"></select>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Create" />
+        <a asp-action="Index" class="btn btn-success">Back</a>
+    </div>
+</form>
+

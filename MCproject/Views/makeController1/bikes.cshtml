@@ -1,0 +1,42 @@
+﻿  @model IEnumerable<MCproject.Models.make>
+@{
+    ViewData["Title"] = "bikes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br />
+      <div class="row">
+          <div class="col-10">
+              <h2 class="text-info">Makes of vehicle</h2>
+          </div>
+          <div class="col-12 text-right">
+              <a class="btn btn-info" asp-action="Create"> <i class="fa-solid fa-motorcycle"></i> &nbsp; Add new Bike</a>
+          </div>
+          <br />
+         
+          <div class="col-12">
+   
+              <table class="table table-striped">
+                  <tr class="table-info ">
+                      <th>
+                          @Html.DisplayNameFor(m => m.name)
+                      </th>
+
+                  </tr>
+
+                  @foreach (var item in Model)
+                  {
+                      
+
+              <tr>
+                  <td>
+                      @Html.DisplayFor(m => item.name)
+                  </td>
+                  <partial name="_buttonPartial" model="item.id" />
+              </tr>
+
+                  }
+              </table>
+          </div>
+</div>
+

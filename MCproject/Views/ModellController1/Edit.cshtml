@@ -1,0 +1,47 @@
+﻿@model MCproject.Models.viewmodel.modelview
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-info"> Edit make of vehicle</h2>
+<form method="post" action="Edit">
+    <input hidden asp-for="Model.id" />
+    <div class="form-group row">
+        <div class="col-10">
+            <h2 class="text-info"> Edit Model of vehicle</h2>
+        </div>
+    </div>
+    <div class="form-group row">
+
+
+
+        <div class="col-2">
+            <label asp-for="makes"></label>
+        </div>
+
+        <div class="col-4">
+            <select asp-for="Model.makeid" asp-items="Model.CselectListItem(Model.makes)" class="form-control"></select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Model.name"></label>
+        </div>
+        <div class="col-4">
+            <input asp-for="Model.name" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn-btn-primary" value="Update" />
+
+        <a href="/makeController1/bikes" style="color:orangered" class="btn btn-primary">Back</a>
+
+    </div>
+
+
+</form>
+

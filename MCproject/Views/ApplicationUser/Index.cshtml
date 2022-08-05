@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MCproject.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-10">
+        <h2 class="text-info"> users </h2>
+    </div>
+    <div class="col-12 text-right">
+        <a class="btn btn-info" asp-action="Index"> </a>
+    </div>
+    <br />
+
+    <div class="col-12">
+
+        <table class="table table-striped">
+            <tr class="table-info ">
+                <th>
+                    @Html.DisplayNameFor(m => m.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Phonenumber2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Gender)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+
+
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Phonenumber2)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Gender)
+            </td>
+           @* <td class="text-right">
+                 <div class="btn-group" rold="group">
+                     <form asp-action="Delete" asp-route="@item.UserName" method="post">
+                         <button type="submit" class="btn btn-danger">Delete</button>
+                     </form>
+
+                     {*@
+            <td>
+      @* <a class="nav-link" id="UserName" asp-area="Identity" asp-action="/ApplicationUser/Delete" style="color:palevioletred" button type="submit"method="post">
+            Delete</a>*@
+
+              <a type="button"class="btn btn-primary"href="@Url.Action("Delete/"+item.Phonenumber2)">Delete</a>
+        
+
+        </td> 
+        
+
+        </tr>
+
+            }
+        </table>
+    </div>
+</div>
+

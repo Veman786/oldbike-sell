@@ -1,0 +1,30 @@
+﻿@model MCproject.Models.make
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<br />
+<h2 class="text-info"> Edit make of vehicle</h2>
+<form method="post" action="Edit">
+    <div class="form-group row">
+        <div class="cols-2" style="background-color:aqua">
+            <label asp-for="name"></label>
+
+
+
+        </div>
+        <div class="col-4">
+            <input asp-for="name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn-btn-primary" asp-route-id="@Model.id" value ="Update" />
+
+            <a asp-action="bikes"class="btn btn-success">Back<</a>
+
+        </div>
+    </div>
+
+</form>

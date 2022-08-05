@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MCproject.Models.bikeee>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<br />
+<br />
+<div class="row">
+    <div class="col-10">
+        <h2 class="text-info">Bikes</h2>
+    </div>
+    <div class="col-12 text-right">
+        <a class="btn btn-info" asp-action="Create"> <i class="fa-solid fa-motorcycle"></i> &nbsp; Add new Bike</a>
+    </div>
+    <br />
+
+    <div class="col-12">
+
+        <table class="table table-striped">
+            <tr class="table-info ">
+                <th>BikePhoto</th>
+                <th>BikeDetail</th>
+                <th>Price</th>
+                <th>Seller Information</th>
+                <th></th>
+
+
+
+
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+
+                <td><img src="@Html.DisplayFor(m => item.Imagepath)" width="150" height="100" /></td>
+                <td>
+                    <b>@Html.DisplayFor(m => item.Make.name) (@Html.DisplayFor(m => item.year))</b> <br />
+                    <b>Model: </b>@Html.DisplayFor(m => item.Model.name)<br />
+                    <b>Mileage: </b>@Html.DisplayFor(m => item.Mileage)
+                </td>
+                <td>@Html.DisplayFor(m => item.price) @Html.DisplayFor(m => item.currency)</td>
+                <td>
+                    <b>Name: </b> @Html.DisplayFor(m => item.SellerName)<br />
+                    
+                   
+                </td>
+
+                <tr>
+                    <partial name="_buttonPartial" model="item.ID" />
+                </tr>
+
+            }
+        </table>
+    </div>
+</div>

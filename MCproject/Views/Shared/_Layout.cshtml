@@ -1,0 +1,94 @@
+﻿@using MCproject.Helpers;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - mcproject</title>
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://kit.fontawesome.com/862f33a970.js" crossorigin="anonymous"></script>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/home">mcproject  </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home </a>
+                </li>
+            
+
+                    @*  @if (User.IsInRole(Roles.Admin))
+                    {
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <li class="nav-item active">
+                            <a href="/ApplicationUser/Index" style="color:palevioletred">Location</a>
+                        </li>
+                </div>
+            }*@
+
+
+                    @if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Executive))
+                    {
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:aqua">
+                            Masters
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-controller="makeController1" asp-action="bikes" style="color:palevioletred">Makes</a>
+                            <a class="dropdown-item" asp-controller="ModellController1" asp-action="Index" style="color:palevioletred">Model</a>
+                            <a class="dropdown-item" asp-controller="Bike" asp-action="Index" style="color:palevioletred">Bikes</a>
+                            <a class="dropdown-item" asp-controller="bikee" asp-action="Index" style="color:palevioletred">bikes</a>
+
+
+                            @if (User.IsInRole(Roles.Admin))
+                            {
+                                <a class="dropdown-item" id="register" asp-area="Identity" asp-page="/Account/Register" style="color:palevioletred">Register</a>
+                                @*  <a class="dropdown-item" href="/ApplicationUser/Index" style="color:palevioletred">Added Users</a>*@
+                                <a class="dropdown-item" id="index" asp-area="Identity" asp-page="/Account/Index" style="color:palevioletred">Index</a>
+                            }
+                        </div>
+
+                    </li>
+
+
+                }
+
+
+
+
+                </ul>
+
+                <partial name="_LoginPartial" />
+
+                </div>
+            </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - MC Project</p>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+
+  
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
