@@ -60,6 +60,7 @@ namespace MCproject.Controllers
             return View(MV);
         }
         [HttpPost, ActionName("Edit")]
+        /////////
         public IActionResult EditPost(models model)
         {
             if (!ModelState.IsValid)
